@@ -1,0 +1,26 @@
+﻿@model BrandVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<ul>
+    @foreach (Brand b in Model.Brands)
+    {
+        <li>
+            @b.Name
+        </li>
+    }
+</ul>
+<hr />
+<h1>YENİ MARKA EKLE</h1>
+<form asp-controller="Menu" asp-action="Insert" method="post">
+    <div>
+        <input asp-for="@Model.Brand.Name" placeholder="Marka Adı"/>
+    </div>
+    <div>
+        <input type="submit" value="Gönder" />
+    </div>
+    <div>
+        <span style="color:red">@TempData["sonuc"]</span>
+    </div>
+</form>
